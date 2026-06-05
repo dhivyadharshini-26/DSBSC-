@@ -1,20 +1,20 @@
 # DSBSC
 
 
-EX NO: 2	DSB-SC-AM MODULATOR AND DEMODULATOR
+## EX NO: 2	DSB-SC-AM MODULATOR AND DEMODULATOR
 
-AIM:
+### AIM:
 
 To write a program to perform DSBSC modulation and demodulation using SCI LAB and study its spectral characteristics
 
-EQUIPMENTS REQUIRED
+### EQUIPMENTS REQUIRED
 
 •	Computer with i3 Processor
 •	SCI LAB
 
 Note: Keep all the switch faults in off position
 
-Algorithm:
+### Algorithm:
 
 1.	Define Parameters:
 •	Fs: Sampling frequency.
@@ -32,30 +32,58 @@ Algorithm:
 •	Low-pass Filtering: Apply a Butterworth low-pass filter to remove the high- frequency components and recover the original message signal.
 5.	Visualization:
 Plot the message signal, carrier signal, DSBSC modulated signal, and the recovered signal after demodulation.
-PROCEDURE
+### PROCEDURE
 
 •	Refer Algorithms and write code for the experiment.
+
 •	Open SCILAB in System
+
 •	Type your code in New Editor
+
 •	Save the file
  
 •	Execute the code
+
 •	If any Error, correct it in code and execute again
+
 •	Verify the generated waveform using Tabulation and Model Waveform
 
-Model Waveform
+### Model Waveform
 
 <img width="703" height="679" alt="image" src="https://github.com/user-attachments/assets/e7c7c7f8-ccf2-41ac-b1f3-325989941a6f" />
 
-Program
+### Program
+```
+Am=9.55;
+fm=1638;
+Ac=18.145;
+fc=16380;
+fs=163800;
+t=0:1/fs:2/fm;
+em = Am*cos(2*3.14*fm*t);
+subplot(3,1,1);
+plot(t,em);
+ec = Ac*cos(2*3.14*fc*t);
+subplot(3,1,2);
+plot(t,ec);
+eAM1 =(Ac+em).*cos(2*3.14*fc*t);
+eAM2 = (Ac-em).*cos(2*3.14*fc*t);
+eDSBSC = eAM1-eAM2;
+subplot(3,1,3);
+plot(t,eDSBSC);
+``` 
 
-Output Graph
+## Output Graph
+
+<img width="1892" height="1025" alt="Screenshot 2026-05-22 144112" src="https://github.com/user-attachments/assets/8afcbe81-6bfd-4b28-b056-8e9af3283378" />
 
 
-Tablular Column
+## Tablular Column
+
+<img width="1599" height="924" alt="WhatsApp Image 2026-06-05 at 10 00 21 PM" src="https://github.com/user-attachments/assets/7927e8ec-04eb-45bb-a87f-e261ac47b364" />
 
 
-Result
+## Result
 
 Thus the DSB-SC-AM Modulation and Demodulation is generated.
 
